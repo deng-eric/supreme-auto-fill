@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+
+  "name": "Supreme Autofill",
+  "version": "0.1",
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.supremenewyork.com/*"],
+      "js": ["jquery-3.2.1.min.js", "content.js"],
+      "run_at": "document_end"
+    }
+  ],
+
+  "icons": { "16": "icon16.png",
+             "48": "icon48.png",
+             "128": "icon128.png" },
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+
+  "browser_action": {
+    "default_icon": "icon16.png",
+    "default_popup": "popup.html",
+    "default_title": "Cop now!"
+  },
+
+  "permissions": [
+    "*://*.supremenewyork.com/*"
+  ]
+}
