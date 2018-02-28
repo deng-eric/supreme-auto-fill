@@ -1,18 +1,18 @@
 var info = {
   //'desired_sizes': ['Large', 'XLarge', 'Medium', 'Small'], // arranged in order of preference
-  'name'            : 'Louis H. Beast',
-  'email'           : 'louishbeast@collab.com',
-  'address_1'       : '2 Supreme St.',
-  'address_2'       : 'Suite 6',
-  'city'            : 'Toronto',
-  'state'           : '9', // 0 index. count on the supreme site i'm not going to list it here
-  'country'         : '1', //set 0 for USA, and 1 for CANADA
-  'zipcode'         : 'M5G2K2',
-  'tel'             : '(123) 456-7890', // must be in this format
-  'card'            : '1111 2111 3111 4111', // credit card # in this field with spaces
+  'name'            : 'Jebbia',
+  'email'           : 'jebbia@supreme.com',
+  'address_1'       : '274 Lafayette Street',
+  'address_2'       : '',
+  'city'            : 'NYC',
+  'state'           : '2', // 0 index. count on the supreme site i'm not going to list it here
+  'country'         : '0', //set 0 for USA, and 1 for CANADA
+  'zipcode'         : '10012',
+  'tel'             : '(212) 966-7799', // must be in this format
+  'card'            : '1234 1234 1234 1234', //4025 credit card # in this field with spaces
   'expiry_month'    : '01', // must be number with leading 0 if jan - sept
   'expiry_year'     : '2020', // 4 digit year
-  'security_code'   : '404' // a 3 or 4 digit CVV code on the back of card 
+  'security_code'   : '123' // a 3 or 4 digit CVV code on the back of card
 };
 
 var size = "Large";
@@ -27,7 +27,7 @@ function selectSize() {
   }
   else{
       console.log("L. No sizes left!!!!!")
-      sleep(1500);
+      checkPage();
   }
 }
 
@@ -88,23 +88,23 @@ function autofill(){
 
     $('#oba3').val(function() {
         return info.address_2;
-    });  
+    });
 
     $('#order_billing_zip').val(function() {
         return info.zipcode;
-    });  
+    });
 
     $('#order_billing_city').val(function() {
         return info.city;
-    });  
+    });
 
     setCountry();
 
     setState();
 
-    $('#cnb').val(function() {
+    $('#nnaerb').val(function() {
         return info.card;
-    }); 
+    });
 
     $('#credit_card_month').find('*').filter(function() {
         return $(this).text() === info.expiry_month;}).attr('selected', 'selected');
@@ -112,10 +112,12 @@ function autofill(){
     $('#credit_card_year').find('*').filter(function() {
         return $(this).text() === info.expiry_year;}).attr('selected', 'selected');
 
-    $('#vval').val(function() {
+    $('#orcer').val(function() {
         return info.security_code;
-    }); 
+    });
+
 }
+
 
 //check what page i'm on
 function checkPage(){
@@ -147,13 +149,3 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     checkPage();
     }
 });
-
-
-
-
-
-
-
-
-
-
